@@ -3,12 +3,14 @@ This is the backend of my Angular project using ASP.NET Core Project.
   
 The Angular frontend works independently from this Backend but is compatible, as I wanted people to be able to just download the front and the app to work with just that.
   
-I have no idea about how cybersecurity works, and so I don't think any of the daty is encrypted as i was able to intercept them with Postman.
+I have no idea about how cybersecurity works, and so I don't think any of the data is secured.
   
-It works using ASP.NET Core project, WEBAPI, and SQL Server Management Studio 21.
+It works using ASP.NET Core project, WEBAPI, SQL Server Management Studio 21, and AWS RDS.
   
-I plan on making this compatible with MySQL to beguin with, and then Azure/AWS.
+~~I plan on making this compatible with MySQL to beguin with, and then Azure/AWS.~~
+I will not implement MySQL since it uses another type of SQL, AWS is now ready, Azure will be implemented later.
 I found this relatively easy, following the tutorial, since I already have basis in C# and the little XML i had to edit was relatively simple.
+-> Adding Failover/multi connection string was not hard but like it needed me to level up my understanding of .NET, since I couldn't find any tutorial on this.
   
 ## Table of Contents
 
@@ -22,7 +24,7 @@ I found this relatively easy, following the tutorial, since I already have basis
 
 ---
 
-## 🔧 Installation
+## 🔧 Installation LOCAL
 
 1. **Clone the repository**
 
@@ -31,16 +33,38 @@ I found this relatively easy, following the tutorial, since I already have basis
    ```
 2. **Open the project**
     * Navigate to the downloaded folder
-    * Double-click to open the file **`WebApplication1.sln`** to open it in Visual Studio.(not VSCODE)
+    * Double-click to open the file **`WebApplication2.sln`** to open it in Visual Studio.(not VSCODE)
    
 3. **Install dependencies**
 
-   Install SQL Server Management Studio, login to the local '.', open and execute the Install.sql file.(this does not works by double-clicking, or on MySQL)
+   Install SQL Server Management Studio, login to the local '.', open and execute the Install.sql file.(this does not works by double-clicking, or on MySQL)  
+   NOTE: Always read the content of .bat file before executing it, if an error occur, use admin.
    If like me you shutted down the autoboot of the Microsoft SQL Server service, you can use the .bat file if the service is set as manual.
    
 4. **Serve locally**
 
-   Click to start the ISS SERVE. 
+   Click to start. 
+
+
+## 🔧 Installation AWS RDS
+
+1. **Setup AWS**
+
+   I recommand watching this tutorial, and setup an API READER user and not an admin one like they did in the tutorial.
+   https://www.youtube.com/watch?v=vp_uulb5phM
+
+2. **Open the project**
+    * Navigate to the downloaded folder
+    * Double-click to open the file **`WebApplication2.sln`** to open it in Visual Studio.(not VSCODE)
+   
+3. **Add the server**
+
+    * Open appsettings.json
+    * Edit the password/link/username/port
+   
+4. **Serve**
+
+   Click to start.
 
 ## 💡 Usage
 
@@ -60,7 +84,6 @@ This was made following the tutorial of https://www.youtube.com/watch?v=4a9VxZjn
 Contributions, issues and feature requests are welcome! Please feel free to:
 
 * Fork the repository
-* Create an issue for bugs or enhancements
 
 ---
 

@@ -9,11 +9,11 @@ namespace BackendAngular2.Controllers
     [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
+        private readonly string _connectionString;
 
-        public ProductsController(IConfiguration configuration)
-        {
-            _configuration = configuration;
+        public ProductsController(DatabaseConfig dbConfig)//au début ça ne marchait pas et puis en fouillant la ligne était souligné
+        {//en fait j'avais oublié de récupérer le résultat
+            _connectionString = dbConfig.ConnectionString;
         }
 
         [HttpGet]
@@ -21,11 +21,10 @@ namespace BackendAngular2.Controllers
         {
             var products = new List<Products>();
             string query = "SELECT id, title, price, image, stock FROM dbo.Products";
-            string connectionString = _configuration.GetConnectionString("ProductsAppDB");
 
             try
             {
-                using (var con = new SqlConnection(connectionString))
+                using (var con = new SqlConnection(_connectionString))
                 using (var cmd = new SqlCommand(query, con))
                 {
                     con.Open();
