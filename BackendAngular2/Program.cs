@@ -3,9 +3,9 @@ using BackendAngular2.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//adding multi-connection-string Failover with for the moment AWS, l'idéologie est simple : on met 2 connection string, et on les test un par un et on met celui qui est online en définitif,
+//adding multi-connection-string Failover with for the moment AWS, the idea is simple : we put 2 connection string, and we test each of them and we put the one active in the variable
 
-string[] connectionNames = { "AwsDB", "LocalDB" };
+string[] connectionNames = { "AwsDB", "LocalDB", "AzureDB" };
 string activeConnectionString = "";
 
 
@@ -36,7 +36,7 @@ if (string.IsNullOrEmpty(activeConnectionString))
     throw new Exception("CRITIQUE : Absolument aucune base de données n'est en ligne !");
 }
 
-// je dit que l'idée était simple, mais j'ai mis du temps avant de comprendre comment faire ces 2 lignes
+// I said that the idea was simple, but it took some time to make this 2 lines down here
 var dbConfig = new DatabaseConfig { ConnectionString = activeConnectionString };
 builder.Services.AddSingleton(dbConfig);
 

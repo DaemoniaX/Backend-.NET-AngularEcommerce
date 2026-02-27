@@ -8,7 +8,7 @@ I have no idea about how cybersecurity works, and so I don't think any of the da
 It works using ASP.NET Core project, WEBAPI, SQL Server Management Studio 21, and AWS RDS.
   
 ~~I plan on making this compatible with MySQL to beguin with, and then Azure/AWS.~~
-I will not implement MySQL since it uses another type of SQL, AWS is now ready, Azure will be implemented later.
+I will not implement MySQL since it uses another type of SQL, AWS and Azure are now ready.
 I found this relatively easy, following the tutorial, since I already have basis in C# and the little XML i had to edit was relatively simple.
 -> Adding Failover/multi connection string was not hard but like it needed me to level up my understanding of .NET, since I couldn't find any tutorial on this.
   
@@ -52,6 +52,8 @@ I found this relatively easy, following the tutorial, since I already have basis
 
    I recommand watching this tutorial, and setup an API READER user and not an admin one like they did in the tutorial.
    https://www.youtube.com/watch?v=vp_uulb5phM
+     
+   The SQL query is in the github.
 
 2. **Open the project**
     * Navigate to the downloaded folder
@@ -65,6 +67,30 @@ I found this relatively easy, following the tutorial, since I already have basis
 4. **Serve**
 
    Click to start.
+
+
+## 🔧 Installation Azure
+
+1. **Setup Azure**
+
+   I recommand watching this tutorial for the setup, don't forget the firewall.
+   https://www.youtube.com/watch?v=pZHKS2MS1nU
+     
+   The SQL query is in the github.
+
+2. **Open the project**
+    * Navigate to the downloaded folder
+    * Double-click to open the file **`WebApplication2.sln`** to open it in Visual Studio.(not VSCODE)
+   
+3. **Add the server**
+
+    * Open appsettings.json
+    * Edit the password/link/username/port
+   
+4. **Serve**
+
+   Click to start.
+AzureDB was way harder to setup than AWS.
 
 ## 💡 Usage
 
