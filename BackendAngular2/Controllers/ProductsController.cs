@@ -11,8 +11,8 @@ namespace BackendAngular2.Controllers
     {
         private readonly string _connectionString;
 
-        public ProductsController(DatabaseConfig dbConfig)//au début ça ne marchait pas et puis en fouillant la ligne était souligné
-        {//en fait j'avais oublié de récupérer le résultat
+        public ProductsController(DatabaseConfig dbConfig)//we grab the new connection string
+        {
             _connectionString = dbConfig.ConnectionString;
         }
 

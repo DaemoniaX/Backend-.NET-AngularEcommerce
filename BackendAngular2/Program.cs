@@ -16,24 +16,17 @@ foreach (var name in connectionNames)
 
     try
     {
-        Console.WriteLine($"Test de la base [{name}]...");
         using (var connection = new SqlConnection(connecStr))
         {
             connection.Open();
         }
-        Console.WriteLine($"✅ SUCCÈS : La base [{name}] est en ligne !");
         activeConnectionString = connecStr;
         break;
     }
     catch
     {
-        Console.WriteLine($"❌ ÉCHEC : La base [{name}] est injoignable.");
-    }
-}
 
-if (string.IsNullOrEmpty(activeConnectionString))
-{
-    throw new Exception("CRITIQUE : Absolument aucune base de données n'est en ligne !");
+    }
 }
 
 // I said that the idea was simple, but it took some time to make this 2 lines down here
